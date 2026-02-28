@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 포트폴리오</title>
+    <meta name="description" content="프론트엔드 개발자 포트폴리오">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="header">
+        <nav class="navbar">
+            <div class="logo">Portfolio.</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section hidden">
+            <div class="hero-content">
+                <p class="greeting">안녕하세요, 저는</p>
+                <h1 class="title">웹 개발자<br><span class="gradient-text">홍길동</span>입니다.</h1>
+                <p class="subtitle">아름답고 직관적인 사용자 경험을 만듭니다.</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn primary-btn">프로젝트 보기</a>
+                    <a href="#contact" class="btn secondary-btn">연락하기</a>
+                </div>
+            </div>
+            <div class="hero-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section hidden">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-container">
+                <div class="about-text">
+                    <p>안녕하세요! 저는 사용자 중심의 웹 애플리케이션을 개발하는 프론트엔드 개발자입니다. 깨끗하고 효율적인 코드를 작성하는 것을 좋아하며, 새로운 기술을 학습하고 적용하는 과정에서 큰 보람을 느낍니다.</p>
+                    <div class="skills">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <span>Profile Image</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section hidden">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <!-- Project Card 1 -->
+                <div class="project-card">
+                    <div class="project-img placeholder-1"></div>
+                    <div class="project-info">
+                        <h3>OOTD 추천 앱</h3>
+                        <p>날씨 API를 활용해 그날의 날씨에 맞는 옷차림을 추천해주는 웹 애플리케이션입니다. 사용자 친화적인 인터페이스에 집중했습니다.</p>
+                        <a href="#" class="project-link">자세히 보기 &rarr;</a>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="project-card">
+                    <div class="project-img placeholder-2"></div>
+                    <div class="project-info">
+                        <h3>개인 일정 관리 서비스</h3>
+                        <p>React를 사용하여 개발한 개인 일정 관리 서비스입니다. 부드러운 애니메이션과 다크모드/라이트모드 전환 기능을 포함합니다.</p>
+                        <a href="#" class="project-link">자세히 보기 &rarr;</a>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="project-card">
+                    <div class="project-img placeholder-3"></div>
+                    <div class="project-info">
+                        <h3>브랜드 랜딩 페이지</h3>
+                        <p>가상의 커피 브랜드를 위한 랜딩 페이지입니다. 세련된 톤앤매너와 인터랙티브한 스크롤 애니메이션을 구현했습니다.</p>
+                        <a href="#" class="project-link">자세히 보기 &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section hidden">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-container">
+                <p>새로운 기회와 흥미로운 프로젝트 제안을 언제나 환영합니다!</p>
+                <a href="mailto:hello@example.com" class="btn primary-btn">이메일 보내기</a>
+                <div class="social-links">
+                    <a href="#">GitHub</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Blog</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
