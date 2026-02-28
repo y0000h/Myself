@@ -82,7 +82,7 @@ function App() {
         <section id="hero" className="hero-section hidden">
           <div className="hero-content">
             <p className="greeting">안녕하세요, 저는</p>
-            <h1 className="title">웹 개발자<br /><span className="gradient-text">홍길동</span>입니다.</h1>
+            <h1 className="title">웹 개발자<br /><span className="gradient-text">문정인</span>입니다.</h1>
             <p className="subtitle">React와 Vite를 사용한 현대적인 포트폴리오입니다.</p>
             <div className="cta-buttons">
               <a href="#projects" className="btn primary-btn">프로젝트 보기</a>
@@ -99,7 +99,7 @@ function App() {
           <h2 className="section-title">About Me</h2>
           <div className="about-container">
             <div className="about-text">
-              <p>안녕하세요! 저는 사용자 중심의 웹 애플리케이션을 개발하는 프론트엔드 개발자입니다. React의 강력함을 활용해 유지보수하기 쉬운 컴포넌트 기반 아키텍처를 설계합니다.</p>
+              <p>안녕하세요! 저는 사용자 중심의 웹 애플리케이션을 개발하는 프론트엔드 개발자 <strong>문정인</strong>입니다. React의 강력함을 활용해 유지보수하기 쉬운 아키텍처를 고민하며, 사랑하는 남자친구 <strong>김영환</strong>의 열렬한 응원에 힘입어 매일 더 멋진 디자인과 코드를 완성해 나가고 있습니다. 💝</p>
               <div className="skills">
                 <span className="skill-tag">HTML5</span>
                 <span className="skill-tag">CSS3 (Grid/Flexbox)</span>
@@ -110,9 +110,7 @@ function App() {
               </div>
             </div>
             <div className="about-image">
-              <div className="image-placeholder">
-                <span>Profile Image</span>
-              </div>
+              <img src="/profile.jpg" alt="문정인 프로필" className="profile-img" />
             </div>
           </div>
         </section>

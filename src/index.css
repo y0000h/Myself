@@ -302,19 +302,17 @@ section {
   position: relative;
 }
 
-.image-placeholder {
+.profile-img {
   width: 100%;
   aspect-ratio: 1;
-  background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+  object-fit: cover;
   border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-secondary);
-  font-weight: 600;
-  position: relative;
-  overflow: hidden;
   box-shadow: var(--card-shadow);
+  transition: transform 0.4s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.03);
 }
 
 /* Projects Section (CSS Grid) */
