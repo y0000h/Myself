@@ -9,6 +9,25 @@
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(255, 255, 255, 0.5);
   --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+
+  /* About profile image adjustment vars */
+  --profile-border-radius: 30px;
+  --profile-border: rgba(255, 255, 255, 0.45);
+  --profile-shadow-1: rgba(59, 130, 246, 0.25);
+  --profile-shadow-2: rgba(139, 92, 246, 0.18);
+  --profile-hover-scale: 1.18;
+  --profile-hover-translate: -10px;
+  --profile-hover-rotate: -3deg;
+  --profile-hover-shadow-1: rgba(59, 130, 246, 0.55);
+  --profile-hover-shadow-2: rgba(139, 92, 246, 0.35);
+  --profile-hover-glow: rgba(255, 255, 255, 0.6);
+
+  /* About text animation vars */
+  --about-text-anim-duration: 0.7s;
+  --about-text-hover-translate: 12px;
+  --about-text-hover-color: var(--accent-color);
+  --about-text-hover-letter-spacing: 0.06em;
+  --about-text-hover-shadow: 0 0 18px rgba(59, 130, 246, 0.35);
 }
 
 * {
@@ -261,6 +280,12 @@ section {
   }
 }
 
+@keyframes activeText {
+  0%   { opacity: 0; transform: translateY(28px) scale(0.85); filter: blur(4px); }
+  60%  { opacity: 1; transform: translateY(-6px) scale(1.03); filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
 /* About Section */
 .about-container {
   display: grid;
@@ -272,6 +297,25 @@ section {
 .about-text {
   font-size: 1.1rem;
   color: var(--text-secondary);
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.about-section.show .about-text .word {
+  display: inline-block;
+  opacity: 0;
+  animation: activeText 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.about-text p {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.about-text p:hover {
+  transform: translateX(var(--about-text-hover-translate));
+  color: var(--about-text-hover-color);
+  letter-spacing: var(--about-text-hover-letter-spacing);
+  text-shadow: var(--about-text-hover-shadow);
 }
 
 .skills {
@@ -300,19 +344,77 @@ section {
 
 .about-image {
   position: relative;
+  border-radius: calc(var(--profile-border-radius) + 2px);
+  overflow: hidden;
+}
+
+.about-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.35), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.about-image::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(135deg, rgba(255, 100, 160, 0.7), rgba(255, 200, 100, 0.6), rgba(255, 80, 140, 0.7));
+  border-radius: calc(var(--profile-border-radius) + 4px);
+  filter: blur(18px);
+  opacity: 0.6;
+  transition: opacity 0.35s ease;
+  z-index: -1;
+  animation: borderGlare 4s ease-in-out infinite;
+}
+
+.about-image:hover::before {
+  opacity: 1;
+}
+
+.about-image:hover::after {
+  opacity: 1;
+}
+
+@keyframes borderGlare {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
 }
 
 .profile-img {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  border-radius: 30px;
-  box-shadow: var(--card-shadow);
-  transition: transform 0.4s ease;
+  border-radius: var(--profile-border-radius);
+  box-shadow: 0 18px 35px var(--profile-shadow-1),
+    0 8px 15px var(--profile-shadow-2),
+    0 0 40px rgba(255, 180, 200, 0.3);
+  transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+  border: 3px solid rgba(255, 200, 220, 0.6);
+  filter: saturate(1.25) brightness(1.07) contrast(1.05) sepia(0.08);
+  animation: glamourPulse 4s ease-in-out infinite;
 }
 
-.profile-img:hover {
-  transform: scale(1.03);
+@keyframes glamourPulse {
+  0%, 100% { box-shadow: 0 18px 35px var(--profile-shadow-1), 0 8px 15px var(--profile-shadow-2), 0 0 40px rgba(255, 150, 180, 0.3); }
+  50%       { box-shadow: 0 18px 35px var(--profile-shadow-1), 0 8px 15px var(--profile-shadow-2), 0 0 65px rgba(255, 100, 160, 0.55); }
+}
+
+.about-image:hover .profile-img {
+  transform: translateY(var(--profile-hover-translate)) scale(var(--profile-hover-scale)) rotate(var(--profile-hover-rotate));
+  filter: saturate(1.5) brightness(1.15) contrast(1.08) sepia(0.12);
+  box-shadow: 0 22px 45px var(--profile-hover-shadow-1),
+    0 12px 22px var(--profile-hover-shadow-2),
+    0 0 80px rgba(255, 100, 160, 0.65);
 }
 
 /* Projects Section (CSS Grid) */

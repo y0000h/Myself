@@ -1,5 +1,26 @@
 /* React refactored from Vanilla JS */
 import { useEffect, useState } from 'react';
+
+function WordReveal({ segments }) {
+  let wordIndex = 0;
+  return (
+    <p>
+      {segments.map((seg, i) => {
+        const words = seg.text.split(' ').filter(Boolean);
+        return words.map((word, j) => {
+          const delay = `${wordIndex++ * 0.07}s`;
+          const span = (
+            <span key={`${i}-${j}`} className="word" style={{ animationDelay: delay }}>
+              {seg.bold ? <strong>{word}</strong> : word}
+              {' '}
+            </span>
+          );
+          return span;
+        });
+      })}
+    </p>
+  );
+}
 import './index.css';
 
 function App() {
@@ -99,7 +120,13 @@ function App() {
           <h2 className="section-title">About Me</h2>
           <div className="about-container">
             <div className="about-text">
-              <p>안녕하세요! 저는 사용자 중심의 웹 애플리케이션을 개발하는 프론트엔드 개발자 <strong>문정인</strong>입니다. React의 강력함을 활용해 유지보수하기 쉬운 아키텍처를 고민하며, 사랑하는 남자친구 <strong>김영환</strong>의 열렬한 응원에 힘입어 매일 더 멋진 디자인과 코드를 완성해 나가고 있습니다. 💝</p>
+              <WordReveal segments={[
+                { text: '안녕하세요! 저는 사용자 중심의 웹 애플리케이션을 개발하는 프론트엔드 개발자 ', bold: false },
+                { text: '문정인', bold: true },
+                { text: '입니다. React의 강력함을 활용해 유지보수하기 쉬운 아키텍처를 고민하며, 사랑하는 남자친구 ', bold: false },
+                { text: '김영환', bold: true },
+                { text: '의 열렬한 응원에 힘입어 매일 더 멋진 디자인과 코드를 완성해 나가고 있습니다. 💝', bold: false },
+              ]} />
               <div className="skills">
                 <span className="skill-tag">HTML5</span>
                 <span className="skill-tag">CSS3 (Grid/Flexbox)</span>
